@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: data_given/data.csv
+      md5: 0653a8060528792a691dc99c220ad4d2
+      size: 13073
+    - path: src/get_data.py
+      md5: c0292beb3264b954856f7eff4bdc8e02
+      size: 786
+    - path: src/load_data.py
+      md5: 30e6b366280bfa41a547a82ee1f4f51b
+      size: 691
+    outs:
+    - path: data/raw/data.csv
+      md5: b0f30e5fccff783749987242cc278151
+      size: 11803
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/raw/data.csv
+      md5: b0f30e5fccff783749987242cc278151
+      size: 11803
+    - path: src/split_data.py
+      md5: 454dbe2fb4d7f95a22e547cbed90957e
+      size: 1102
+    outs:
+    - path: data/processed/test_data.csv
+      md5: 086a58a570fa42292686ba63d0a158de
+      size: 2407
+    - path: data/processed/train_data.csv
+      md5: 3f93ff5cfe03e84fc2e3a77644995653
+      size: 9441
