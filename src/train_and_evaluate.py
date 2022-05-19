@@ -42,7 +42,8 @@ def train_and_evaluate(config_path):
     
 
     # Build logistic regression model
-    model = LogisticRegression(solver='sag', random_state=0).fit(train_x, train_y)
+    # model = LogisticRegression(solver='sag', random_state=0).fit(train_x, train_y)
+    model = RandomForestClassifier(n_estimators= config["rf_params"]["n_estimators"], max_depth= config["rf_params"]["max_depth"], oob_score= config["rf_params"]["oob_score"] )
     
     # Report training set score
     train_score = model.score(train_x, train_y) * 100

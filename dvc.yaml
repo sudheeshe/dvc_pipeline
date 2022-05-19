@@ -26,4 +26,4 @@ stages:
     - src/train_and_evaluate.py
     metrics:
     - report/scores.json:
-        cache: false 
+        cache: false

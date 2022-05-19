@@ -13,7 +13,12 @@ load_data:
 split_data:
   train_path: data/processed/train_data.csv
   test_path: data/processed/test_data.csv
-  test_size: 0.2
+  test_size: 0.3
+
+rf_params:
+  n_estimators= 200
+  max_depth= 30
+  oob_score= True
 
 model_dir: saved_models
 
