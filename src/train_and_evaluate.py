@@ -42,9 +42,9 @@ def train_and_evaluate(config_path):
     
 
     # Build logistic regression model
-    model = LogisticRegression(solver= config["logistic_reg_params"]["solver"], random_state= int(config["logistic_reg_params"]["random_state"])).fit(train_x, train_y)
-    #model = RandomForestClassifier(n_estimators= int(config["rf_params"]["n_estimators"]), max_depth= int(config["rf_params"]["max_depth"]), oob_score= str(config["rf_params"]["oob_score"]))
-    #model.fit(train_x, train_y)
+    #model = LogisticRegression(solver= config["logistic_reg_params"]["solver"], random_state= int(config["logistic_reg_params"]["random_state"])).fit(train_x, train_y)
+    model = RandomForestClassifier(n_estimators= int(config["rf_params"]["n_estimators"]), max_depth= int(config["rf_params"]["max_depth"]), oob_score= str(config["rf_params"]["oob_score"]))
+    model.fit(train_x, train_y)
     # Report training set score
     train_score = model.score(train_x, train_y) * 100
     print(train_score)

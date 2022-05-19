@@ -34,4 +34,22 @@
             "threshold": 0
         }
     ]
+}{
+    "roc": [
+        {
+            "fpr": 0.0,
+            "tpr": 0.0,
+            "threshold": 2
+        },
+        {
+            "fpr": 0.2033898305084746,
+            "tpr": 0.5,
+            "threshold": 1
+        },
+        {
+            "fpr": 1.0,
+            "tpr": 1.0,
+            "threshold": 0
+        }
+    ]
 }
