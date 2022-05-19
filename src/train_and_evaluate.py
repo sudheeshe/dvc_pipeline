@@ -42,9 +42,9 @@ def train_and_evaluate(config_path):
     
 
     # Build logistic regression model
-    # model = LogisticRegression(solver='sag', random_state=0).fit(train_x, train_y)
-    model = RandomForestClassifier(n_estimators= int(config["rf_params"]["n_estimators"]), max_depth= int(config["rf_params"]["max_depth"]), oob_score= str(config["rf_params"]["oob_score"]))
-    model.fit(train_x, train_y)
+    model = LogisticRegression(solver= config["logistic_reg_params"]["solver"], random_state= int(config["logistic_reg_params"]["random_state"])).fit(train_x, train_y)
+    #model = RandomForestClassifier(n_estimators= int(config["rf_params"]["n_estimators"]), max_depth= int(config["rf_params"]["max_depth"]), oob_score= str(config["rf_params"]["oob_score"]))
+    #model.fit(train_x, train_y)
     # Report training set score
     train_score = model.score(train_x, train_y) * 100
     print(train_score)
@@ -78,7 +78,7 @@ def train_and_evaluate(config_path):
     prc_points = list(zip(precision, recall, prc_thresholds))[::nth_point]    
     
     
-    with open(prc_file, "w") as fd:
+    with open(prc_file, "a") as fd:
         prcs = {
                 "prc": [
                     {"precision": p, "recall": r, "threshold": t}
@@ -88,7 +88,7 @@ def train_and_evaluate(config_path):
         json.dump(prcs, fd, indent=4, cls=NumpyEncoder)
         
 
-    with open(roc_file, "w") as fd:
+    with open(roc_file, "a") as fd:
         rocs = {
                 "roc": [
                     {"fpr": fp, "tpr": tp, "threshold": t}
@@ -156,7 +156,7 @@ def train_and_evaluate(config_path):
 
     # scores_file = config["reports"]["scores"]
     
-    with open(scores_file, "w") as f:
+    with open(scores_file, "a") as f:
         scores = {
             "train_score": train_score,
             "test_score": test_score,
