@@ -1,6 +1,6 @@
 {
     "train_score": 100.0,
-    "test_score": 68.81720430107528,
-    "roc_auc": 0.7036390827517448,
-    "Logistic Accuracy": 0.6881720430107527
+    "test_score": 64.74820143884892,
+    "roc_auc": 0.7165815240527885,
+    "Logistic Accuracy": 0.6474820143884892
 }

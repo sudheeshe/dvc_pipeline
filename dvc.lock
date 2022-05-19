@@ -6,6 +6,9 @@ stages:
     - path: data_given/data.csv
       md5: 0653a8060528792a691dc99c220ad4d2
       size: 13073
+    - path: params.yaml
+      md5: 8ef11ea08fdcae34c59f4ad2de1e1195
+      size: 581
     - path: src/get_data.py
       md5: c0292beb3264b954856f7eff4bdc8e02
       size: 786
@@ -22,29 +25,35 @@ stages:
     - path: data/raw/data.csv
       md5: b0f30e5fccff783749987242cc278151
       size: 11803
+    - path: params.yaml
+      md5: 8ef11ea08fdcae34c59f4ad2de1e1195
+      size: 581
     - path: src/split_data.py
       md5: 454dbe2fb4d7f95a22e547cbed90957e
       size: 1102
     outs:
     - path: data/processed/test_data.csv
-      md5: 086a58a570fa42292686ba63d0a158de
-      size: 2407
+      md5: 39101d5b05970350dd730bbf8c52d0f8
+      size: 3580
     - path: data/processed/train_data.csv
-      md5: 3f93ff5cfe03e84fc2e3a77644995653
-      size: 9441
+      md5: 08bb381f286b9183ae8f7a386c7fd5ba
+      size: 8268
   train_and_evaluate:
     cmd: python src/train_and_evaluate.py --config=params.yaml
     deps:
     - path: data/processed/test_data.csv
-      md5: 086a58a570fa42292686ba63d0a158de
-      size: 2407
+      md5: 39101d5b05970350dd730bbf8c52d0f8
+      size: 3580
     - path: data/processed/train_data.csv
-      md5: 3f93ff5cfe03e84fc2e3a77644995653
-      size: 9441
+      md5: 08bb381f286b9183ae8f7a386c7fd5ba
+      size: 8268
+    - path: params.yaml
+      md5: 8ef11ea08fdcae34c59f4ad2de1e1195
+      size: 581
     - path: src/train_and_evaluate.py
-      md5: ae51eaf95dd8e02d1382af077b90028e
-      size: 6452
+      md5: b5c3407ec0db2680c4c71b4c2b3a0a55
+      size: 6464
     outs:
     - path: report/scores.json
-      md5: 85535075c0006ec83a57cb29b49551a9
+      md5: 2668d1f29c1ec076ba3fe81b2b522e1a
       size: 150

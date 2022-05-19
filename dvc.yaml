@@ -5,6 +5,7 @@ stages:
     - src/get_data.py
     - src/load_data.py
     - data_given/data.csv
+    - params.yaml
 
     outs:
     - data/raw/data.csv
@@ -14,6 +15,7 @@ stages:
     deps:
     - src/split_data.py
     - data/raw/data.csv
+    - params.yaml
     outs:
     - data/processed/train_data.csv
     - data/processed/test_data.csv
@@ -24,6 +26,7 @@ stages:
     - data/processed/train_data.csv
     - data/processed/test_data.csv
     - src/train_and_evaluate.py
+    - params.yaml
     metrics:
     - report/scores.json:
         cache: false
